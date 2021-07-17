@@ -1,0 +1,51 @@
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+	
+	<fieldset>
+        <legend id="xy">Previous Users</legend>
+        <table id='out'>
+        	<tr id='ab'>
+        		<th>First Name</th>
+        		<th>Last Name</th>
+        		<th>E-Mail</th>
+        		<th>Password</th>
+        	</tr>
+        </table>
+    </fieldset>
+
+	<a class="btn btn-info" id="bootstrap" href="index.html" role="button">Log Out</a>
+
+	
+</body>
+<script>
+
+	    
+		var xyz = document.getElementById('out');
+
+		for(let i=1;i<=JSON.parse(localStorage.getItem('details')).length;i++)
+		{
+			const fname= JSON.parse(localStorage.getItem('details'))[i].FirstName;
+			const lname= JSON.parse(localStorage.getItem('details'))[i].LastName;
+			const mail= JSON.parse(localStorage.getItem('details'))[i].Mail;
+			const pass= JSON.parse(localStorage.getItem('details'))[i].Password;
+
+			var newrow = xyz.insertRow(i);
+			var col1 = newrow.insertCell(0);
+			var col2 = newrow.insertCell(1);
+			var col3 = newrow.insertCell(2);
+			var col4 = newrow.insertCell(3);
+
+			col1.innerHTML = fname;
+			col2.innerHTML = lname;
+			col3.innerHTML = mail;
+			col4.innerHTML = pass;
+		}
+
+</script>
